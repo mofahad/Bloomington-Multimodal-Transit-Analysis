@@ -1,0 +1,196 @@
+# Bloomington Multimodal Transit Analysis
+
+**Author:** Mohammed Fahad Shahul Hameed
+**Affiliation:** M.S Data Science, Indiana University Bloomington
+**Repository:** [GitHub - Bloomington-Multimodal-Transit-Analysis](https://github.com/mofahad/Bloomington-Multimodal-Transit-Analysis)
+
+
+
+📘 Overview
+
+This project analyzes **Bloomington Transit's multimodal integration** by combining **temporal**, **geospatial**, and **network analyses** of GTFS data to identify strategic transit hubs for improved **bike and pedestrian connectivity**. Using open-source datasets and Python-based tools, it visualizes service frequency, network centrality, and spatial coverage to support data-driven urban mobility planning.
+
+
+
+🎯 Objectives
+
+1. Evaluate **service frequency** and **hourly patterns** across Bloomington Transit routes.
+2. Identify **key transfer hubs** and **network connectivity** through graph-based metrics.
+3. Integrate **spatial analysis** with **bike and pedestrian infrastructure** for multimodal planning.
+4. Provide **interactive maps** and **data-driven insights** for stakeholders including city planners, transit authorities, and riders.
+
+🗂️ Dataset Description
+
+**Source:** Bloomington Transit GTFS Feed (October 2025)
+**URL:** [GTFS Data Feed](https://s3.amazonaws.com/etatransit.gtfs/bloomingtontransit.etaspot.net/gtfs.zip)
+
+| File             | Description                     |
+| ---------------- | ------------------------------- |
+| `stops.txt`      | 307 stops (lat/lon, names, IDs) |
+| `routes.txt`     | 9 transit routes                |
+| `trips.txt`      | 2,847 scheduled trips           |
+| `stop_times.txt` | 44,226 stop events              |
+| `shapes.txt`     | Geographic route paths          |
+
+Spatial coverage spans Bloomington, Indiana, including **downtown**, **IU campus**, and surrounding **residential areas**. Data cleaning and preprocessing were conducted using pandas with validations on geographic bounds (39.1–39.2°N, 86.4–86.6°W).
+
+⚙️ Methodology
+
+1. Temporal Analysis
+
+* Aggregated **44,226 stop-time records** into hourly bins.
+* Identified **peak hours (7–9 AM, 4–6 PM)** and **off-peak inefficiencies**.
+* Visualized with pandas, matplotlib, and seaborn.
+
+2. Geospatial Analysis
+
+* Mapped 307 stop coordinates using **Folium** and **Matplotlib**.
+* Categorized stops by service frequency:
+
+  * High (>50 trips/day), Medium (21–50), Low (<20).
+* Highlighted dense clusters in **downtown and IU areas**.
+* Created an interactive map with service density layers.
+
+3. Network Analysis
+
+* Constructed undirected graph using **NetworkX**:
+
+  * Nodes = Stops
+  * Edges = Consecutive stop connections
+  * Weights = Frequency of shared trips
+* Computed:
+
+  * **Degree Centrality** – connectivity
+  * **Betweenness Centrality** – transfer importance
+  * **Closeness Centrality** – accessibility
+* Visualized with **ForceAtlas2-style layouts** and color-coded metrics.
+
+🧭 Tools and Libraries
+
+| Library                 | Purpose                                |
+| ----------------------- | -------------------------------------- |
+| `pandas`, `numpy`       | Data processing & aggregation          |
+| `matplotlib`, `seaborn` | Static visualization                   |
+| `networkx`              | Graph analysis and centrality          |
+| `folium`                | Interactive mapping                    |
+| `requests`              | Automated GTFS data fetching           |
+| `Jupyter Notebook`      | Exploratory analysis and documentation |
+
+ 📊 Key Insights
+
+Temporal Findings
+
+* **Total stops analyzed:** 44,226
+* **Peak hours:** 7–9 AM, 4–6 PM
+* **Peak utilization:** 40% of total service in 6-hour window
+* **Off-peak service:** 60% of total span (6 AM–11 PM)
+
+Geospatial Findings
+
+* **Service concentration:** Downtown and IU campus (500+ trips/day)
+* **Coverage:** 0.087° lat × 0.128° lon, centered at (39.1597, -86.5337)
+* **Top 5 busiest stops:**
+
+  1. Transit Center – 716 trips/day
+  2. 10th St & Eagleson @ Wells Library – 348 trips/day
+  3. 3rd St @ IU Biology – 321 trips/day
+  4. 3rd & Eagleson – 321 trips/day
+  5. 3rd St & Indiana Ave – 321 trips/day
+
+Network Findings
+
+* **Nodes:** 512
+* **Edges:** 547
+* **Density:** 0.004
+* **Clustering Coefficient:** 0.020
+* **Most connected hub:** Transit Center (Degree = 0.027)
+* **Main structure:** 1 dense central network + 3 peripheral components
+
+🌐 Interactive Visualizations
+
+🔹 Temporal Analysis
+
+Shows hourly service frequencies, identifying commuter peaks and underutilized off-peak periods.
+
+🔹 Geospatial Heatmap
+
+An interactive **Folium map** visualizing:
+
+* Transit coverage density
+* Service frequency by stop
+* Network hub locations
+
+**Interactive Map:** [`5_interactive_map.html`](./5_interactive_map.html)
+
+🔹 Network Graphs
+
+Visualizes network connectivity, node centrality, and critical transfer hubs with:
+
+* Node size = service frequency
+* Node color = degree centrality
+* Edge thickness = connection weight
+
+🧩 AI Tool Evaluation
+
+Analysis was partially assisted using **Claude.ai** for code generation and visualization scaffolding.
+Human validation ensured domain relevance, interpretability, and visual accuracy.
+
+💡 Recommendations
+
+| Stakeholder            | Recommendation                                                                      |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| **City Planners**      | Enhance bike/pedestrian access near 10 major transit hubs and low-centrality stops. |
+| **Transit Authority**  | Optimize off-peak scheduling; reinforce high-betweenness transfer nodes.            |
+| **Riders / Advocates** | Use interactive map for trip planning; advocate for underserved neighborhoods.      |
+
+---
+
+## 🔍 Results Summary
+
+| Metric                 | Value                          |
+| ---------------------- | ------------------------------ |
+| High-frequency stops   | 175                            |
+| Medium-frequency stops | 288                            |
+| Network components     | 24                             |
+| Average betweenness    | 0.034                          |
+| Top hub                | 7th & Indiana / Transit Center |
+
+---
+
+ 🧠 Future Work
+
+* Integrate **real ridership (boardings/alightings)** data.
+* Overlay **census demographics** to analyze equity in transit coverage.
+* Conduct **field validation** for hub-area accessibility and bike infrastructure.
+
+---
+
+🙏 Acknowledgements
+
+Special thanks to:
+
+* **Professor Andreas** and **T.A. Divya** for GTFS visualization guidance.
+* **Bloomington Transit Authority** for open GTFS data.
+* **NetworkX** and **Folium** open-source communities.
+* **Anthropic’s Claude AI** for development support.
+
+---
+
+📎 Repository Files
+
+```
+Bloomington-Multimodal-Transit-Analysis/
+│
+├── Bloomington_Multimodal_Transit_Analysis_2.ipynb     # Jupyter Notebook with analysis
+├── Bloomington Multimodal Transit Analysis.docx         # Project report
+├── INSIGHTS_REPORT.txt                                 # Summary insights and metrics
+├── 5_interactive_map.html                              # Interactive visualization
+├── 1_temporal_analysis.png                             # Hourly service plots
+├── 2_geospatial_analysis.png                           # Coverage heatmaps
+├── 3_network_graphs_gephi_style.png                    # NetworkX-based graph
+├── 4_network_metrics.png                               # Centrality metrics visual
+└── README.md                                           # Documentation (this file)
+```
+
+---
+
