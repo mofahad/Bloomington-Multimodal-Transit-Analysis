@@ -1,0 +1,83 @@
+
+=============================================================================
+BLOOMINGTON TRANSIT MULTIMODAL ANALYSIS - KEY INSIGHTS
+=============================================================================
+
+TEMPORAL INSIGHTS:
+-----------------
+1. Peak Service Hours: 13:00 
+   (with 2367 stop events)
+
+2. Service Distribution:
+   - Morning Peak (7-9 AM): 5,564 stop events (19.6%)
+   - Evening Peak (4-6 PM): 5,967 stop events (21.1%)
+   - Off-Peak: 16,803 stop events (59.3%)
+
+3. Service Frequency Categories:
+   - High Frequency Stops (>50 trips/day): 175
+   - Medium Frequency (21-50 trips/day): 288
+   - Low Frequency (1-20 trips/day): 26
+   - Inactive Stops: 23
+
+GEOSPATIAL INSIGHTS:
+-------------------
+1. Service Coverage:
+   - Total Transit Area: 0.087° lat × 0.128° lon
+   - Geographic Center: (39.15966, -86.53370)
+
+2. Top 5 Busiest Stops:
+   1. Transit Center: 716 trips/day
+   2. 10th St & Eagleson @ Wells Library: 348 trips/day
+   3. 3rd St @ IU Biology: 321 trips/day
+   4. 3rd & Eagleson: 321 trips/day
+   5. 3rd St & Indiana Ave: 321 trips/day
+
+3. Transit Hub Identification:
+   - 10 major transit hubs identified
+   - Hubs combine high connectivity AND high service frequency
+
+NETWORK INSIGHTS:
+----------------
+1. Network Structure:
+   - Total Nodes: 512 stops
+   - Total Edges: 547 connections
+   - Network Density: 0.004
+   - Connected Components: 24
+
+2. Centrality Analysis:
+   - Avg Degree Centrality: 0.004
+   - Avg Betweenness Centrality: 0.034
+   - Clustering Coefficient: 0.020
+
+3. Most Connected Stops (Highest Degree Centrality):
+   1. Transit Center: 0.027
+   2. 3rd St & Indiana Ave: 0.012
+   3. Walnut St & Smith Ave @ Project School: 0.010
+   4. Walnut St and 14th St: 0.010
+   5. 3rd St and Grant St (Inbound-Westbound): 0.010
+
+RECOMMENDATIONS FOR STAKEHOLDERS:
+---------------------------------
+1. City Planners:
+   - Focus infrastructure investments on identified transit hubs
+   - Improve first/last mile connectivity at low-centrality stops
+   - Consider adding bike-sharing stations at high-frequency stops
+
+2. Transit Authority:
+   - Optimize off-peak service based on temporal patterns
+   - Enhance connections at high betweenness centrality stops (transfer points)
+   - Address service gaps in low-density areas
+
+3. Riders & Accessibility Advocates:
+   - Interactive map shows real-time coverage and connectivity
+   - High-frequency corridors offer reliable service
+   - Hub locations ideal for multimodal transfers
+
+=============================================================================
+FILES GENERATED: 
+  1. 1_temporal_analysis.png
+  2. 2_geospatial_analysis.png
+  3. 3_network_graphs_gephi_style.png
+  4. 4_network_metrics.png
+  5. 5_interactive_map.html
+=============================================================================
